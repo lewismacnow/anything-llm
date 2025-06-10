@@ -220,80 +220,80 @@ async function streamChat({
   // We don't want to write a new method for every LLM to support openAI calls
   // via the `handleStreamResponseV2` method handler. So here we create a passthrough
   // that on writes to the main response, transforms the chunk to OpenAI format.
-  const responseInterceptor = new PassThrough({});
-  let accumulatedData = '';
+  // The chunk is coming in the format from `writeResponseChunk` but in the AnythingLLM
+  // response chunk schema, so we here we mutate each chunk.
+const responseInterceptor = new PassThrough({});
+let accumulatedData = '';
 
-  // ... existing code ...
+responseInterceptor.on("data", async (chunk) => {
+  try {
+    let rawChunk = chunk.toString();
+    if (!rawChunk.startsWith('data: ')) return; // Skip incomplete chunks
 
-  responseInterceptor.on("data", async (chunk) => {
-    try {
-      let rawChunk = chunk.toString();
-      if (!rawChunk.startsWith('data: ')) return; // Skip incomplete chunks
+    const jsonDataStr = rawChunk.split("data: ")[1].trim();
 
-      const jsonDataStr = rawChunk.split("data: ")[1].trim();
+    accumulatedData += jsonDataStr;
 
-      accumulatedData += jsonDataStr;
-
-      while (accumulatedData.length > 0) {
+    while (accumulatedData.length > 0) {
+      try {
+        let originalData;
         try {
-          let originalData;
-          try {
-            originalData = JSON.parse(accumulatedData);
-          } catch (parseError) {
-            if (accumulatedData.includes('"sources":[')) {
-              // Attempt to remove the 'sources' field and retry parsing
-              const modifiedStr = accumulatedData.replace(/,"sources":\s*\[.*?\]/g, '');
-              originalData = JSON.parse(modifiedStr);
-            } else {
-              throw parseError;
-            }
-          }
-
-          const modified = formatJSON(originalData, {
-            chunked: true,
-            model: workspace.slug,
-          }); // rewrite to OpenAI format
-
-          response.write(`data: ${JSON.stringify(modified)}\n\n`);
-          accumulatedData = '';
-        } catch (e) {
-          console.error('Raw JSON data:', jsonDataStr);
-          console.error('Parsing error:', e);
-
-          // Try to identify the problematic part
-          let corruptedIndex = findCorruptedIndex(accumulatedData);
-          if (corruptedIndex !== -1) {
-            console.error(`Removing corrupted data at index ${corruptedIndex}`);
-            accumulatedData = accumulatedData.slice(corruptedIndex + 1).trim();
-          } else {
-            // Skip this payload entirely
-            console.error('Skipping problematic payload:', accumulatedData);
-            accumulatedData = '';
-          }
-        }
-      }
-    } catch (e) {
-      console.error('Unexpected error:', e);
-    }
-  });
-
-  function findCorruptedIndex(jsonStr) {
-    try {
-      JSON.parse(jsonStr);
-      return -1; // No corruption found
-    } catch (e) {
-      let corruptedIndex = 0;
-      for (let i = 0; i < jsonStr.length; i++) {
-        const truncatedJson = jsonStr.substring(0, i + 1);
-        try {
-          JSON.parse(truncatedJson);
+          originalData = JSON.parse(accumulatedData);
         } catch (parseError) {
-          return corruptedIndex;
+          if (accumulatedData.includes('"sources":[')) {
+            // Attempt to remove the 'sources' field and retry parsing
+            const modifiedStr = accumulatedData.replace(/,"sources":\s*\[.*?\]/g, '');
+            originalData = JSON.parse(modifiedStr);
+          } else {
+            throw parseError;
+          }
+        }
+
+        const modified = formatJSON(originalData, {
+          chunked: true,
+          model: workspace.slug,
+        }); // rewrite to OpenAI format
+
+        response.write(`data: ${JSON.stringify(modified)}\n\n`);
+        accumulatedData = '';
+      } catch (e) {
+        console.error('Raw JSON data:', jsonDataStr);
+        console.error('Parsing error:', e);
+
+        // Try to identify the problematic part
+        let corruptedIndex = findCorruptedIndex(accumulatedData);
+        if (corruptedIndex !== -1) {
+          console.error(`Removing corrupted data at index ${corruptedIndex}`);
+          accumulatedData = accumulatedData.slice(corruptedIndex + 1).trim();
+        } else {
+          // Skip this payload entirely
+          console.error('Skipping problematic payload:', accumulatedData);
+          accumulatedData = '';
         }
       }
+    }
+  } catch (e) {
+    console.error('Unexpected error:', e);
+  }
+});
+
+function findCorruptedIndex(jsonStr) {
+    try {
+        JSON.parse(jsonStr);
+        return -1; // No corruption found
+    } catch (e) {
+        let corruptedIndex = 0;
+        for (let i = 0; i < jsonStr.length; i++) {
+            const truncatedJson = jsonStr.substring(0, i + 1);
+            try {
+                JSON.parse(truncatedJson);
+            } catch (parseError) {
+                return corruptedIndex;
+            }
+        }
     }
     return -1; // Should not reach here if there's corruption
-  }
+}
 
   // User is trying to query-mode chat a workspace that has no data in it - so
   // we should exit early as no information can be found under these conditions.
@@ -556,5 +556,6 @@ function formatJSON(
 }
 
 module.exports.OpenAICompatibleChat = {
+  chatSync,
   streamChat,
 };
