@@ -223,6 +223,8 @@ async function streamChat({
   const responseInterceptor = new PassThrough({});
   let accumulatedData = '';
 
+  // ... existing code ...
+
   responseInterceptor.on("data", async (chunk) => {
     try {
       let rawChunk = chunk.toString();
@@ -234,7 +236,19 @@ async function streamChat({
 
       while (accumulatedData.length > 0) {
         try {
-          const originalData = JSON.parse(accumulatedData);
+          let originalData;
+          try {
+            originalData = JSON.parse(accumulatedData);
+          } catch (parseError) {
+            if (accumulatedData.includes('"sources":[')) {
+              // Attempt to remove the 'sources' field and retry parsing
+              const modifiedStr = accumulatedData.replace(/,"sources":\s*\[.*?\]/g, '');
+              originalData = JSON.parse(modifiedStr);
+            } else {
+              throw parseError;
+            }
+          }
+
           const modified = formatJSON(originalData, {
             chunked: true,
             model: workspace.slug,
