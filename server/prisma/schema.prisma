@@ -185,7 +185,7 @@ model workspace_chats {
   include        Boolean  @default(true)
   user_id        Int?
   thread_id      Int? // No relation to prevent whole table migration
-  api_session_id String? // String identifier for only the dev API to parition chats in any mode.
+  api_session_id String? // String identifier for only the dev API to partition chats in any mode.
   createdAt      DateTime @default(now())
   lastUpdatedAt  DateTime @default(now())
   feedbackScore  Boolean?
@@ -240,6 +240,7 @@ model embed_configs {
   allow_prompt_override      Boolean       @default(false)
   max_chats_per_day          Int?
   max_chats_per_session      Int?
+  message_limit              Int?          @default(20)
   workspace_id               Int
   createdBy                  Int?
   usersId                    Int?
