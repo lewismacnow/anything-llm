@@ -61,6 +61,7 @@ const TRANSLATIONS = {
     optional: null,
     yes: null,
     no: null,
+    search: null,
   },
   settings: {
     title: "Instance Ayarları",
@@ -233,6 +234,7 @@ const TRANSLATIONS = {
         deleteConfirm: null,
         clearAllConfirm: null,
         expand: null,
+        publish: null,
       },
     },
     refusal: {
@@ -241,6 +243,8 @@ const TRANSLATIONS = {
       query: "sorgu",
       "desc-end":
         "modunda bağlam bulunamazsa, özel bir ret yanıtı döndürmek isteyebilirsiniz.",
+      "tooltip-title": null,
+      "tooltip-description": null,
     },
     temperature: {
       title: "LLM Sıcaklığı",
@@ -397,8 +401,6 @@ const TRANSLATIONS = {
       "Gömme, metni vektörlere dönüştürme sürecidir. Dosyalarınızın ve komutlarınızın işlenebilmesi için AnythingLLM, bu kimlik bilgilerine ihtiyaç duyar.",
     provider: {
       title: "Embedding Sağlayıcısı",
-      description:
-        "AnythingLLM'nin yerel gömme motoru kullanıldığında ek bir kurulum gerekmez.",
     },
   },
   text: {
@@ -407,9 +409,6 @@ const TRANSLATIONS = {
       "Bazı durumlarda, yeni belgelerin vektör veritabanınıza eklenmeden önce hangi varsayılan yöntemle bölünüp parçalanacağını değiştirmek isteyebilirsiniz.",
     "desc-end":
       "Metin bölmenin nasıl çalıştığını ve olası yan etkilerini tam olarak bilmiyorsanız bu ayarı değiştirmemelisiniz.",
-    "warn-start": "Buradaki değişiklikler yalnızca",
-    "warn-center": "yeni eklenen belgeler",
-    "warn-end": "için geçerli olacak, mevcut belgelere uygulanmaz.",
     size: {
       title: "Metin Parça Boyutu",
       description:
@@ -454,30 +453,6 @@ const TRANSLATIONS = {
       message: "Mesaj",
       response: "Yanıt",
       at: "Gönderilme Zamanı",
-    },
-  },
-  multi: {
-    title: "Çoklu Kullanıcı Modu",
-    description:
-      "Takımınızı desteklemek için örneğinizi yapılandırın ve Çoklu Kullanıcı Modunu etkinleştirin.",
-    enable: {
-      "is-enable": "Çoklu Kullanıcı Modu Etkin",
-      enable: "Çoklu Kullanıcı Modunu Etkinleştir",
-      description:
-        "Varsayılan olarak tek yönetici sizsiniz. Yönetici olarak yeni kullanıcılar veya yöneticiler için hesap oluşturmanız gerekir. Şifrenizi kaybetmeyin çünkü yalnızca bir Yönetici kullanıcı şifreleri sıfırlayabilir.",
-      username: "Yönetici hesap kullanıcı adı",
-      password: "Yönetici hesap şifresi",
-    },
-    password: {
-      title: "Şifre Koruması",
-      description:
-        "AnythingLLM örneğinizi bir şifre ile koruyun. Bu şifreyi unutmanız hâlinde kurtarma yöntemi yoktur, bu yüzden mutlaka güvende saklayın.",
-    },
-    instance: {
-      title: "Örneği Şifreyle Koru",
-      description:
-        "Varsayılan olarak tek yönetici sizsiniz. Yönetici olarak yeni kullanıcılar veya yöneticiler için hesap oluşturmanız gerekir. Şifrenizi kaybetmeyin çünkü yalnızca bir Yönetici kullanıcı şifreleri sıfırlayabilir.",
-      password: "Örnek Şifresi",
     },
   },
   event: {
@@ -705,6 +680,16 @@ const TRANSLATIONS = {
     small: null,
     normal: null,
     large: null,
+    workspace_llm_manager: {
+      search: null,
+      loading_workspace_settings: null,
+      available_models: null,
+      available_models_description: null,
+      save: null,
+      saving: null,
+      missing_credentials: null,
+      missing_credentials_description: null,
+    },
   },
   profile_settings: {
     edit_account: null,
@@ -713,7 +698,7 @@ const TRANSLATIONS = {
     username: null,
     username_description: null,
     new_password: null,
-    passwort_description: null,
+    password_description: null,
     cancel: null,
     update_account: null,
     theme: null,
@@ -908,6 +893,112 @@ const TRANSLATIONS = {
       llmPreferences: null,
       chatSettings: null,
       help: null,
+      showLLMSelector: null,
+    },
+  },
+  community_hub: {
+    publish: {
+      system_prompt: {
+        success_title: null,
+        success_description: null,
+        success_thank_you: null,
+        view_on_hub: null,
+        modal_title: null,
+        name_label: null,
+        name_description: null,
+        name_placeholder: null,
+        description_label: null,
+        description_description: null,
+        tags_label: null,
+        tags_description: null,
+        tags_placeholder: null,
+        visibility_label: null,
+        public_description: null,
+        private_description: null,
+        publish_button: null,
+        submitting: null,
+        submit: null,
+        prompt_label: null,
+        prompt_description: null,
+        prompt_placeholder: null,
+      },
+      agent_flow: {
+        public_description: null,
+        private_description: null,
+        success_title: null,
+        success_description: null,
+        success_thank_you: null,
+        view_on_hub: null,
+        modal_title: null,
+        name_label: null,
+        name_description: null,
+        name_placeholder: null,
+        description_label: null,
+        description_description: null,
+        tags_label: null,
+        tags_description: null,
+        tags_placeholder: null,
+        visibility_label: null,
+        publish_button: null,
+        submitting: null,
+        submit: null,
+        privacy_note: null,
+      },
+      generic: {
+        unauthenticated: {
+          title: null,
+          description: null,
+          button: null,
+        },
+      },
+      slash_command: {
+        success_title: null,
+        success_description: null,
+        success_thank_you: null,
+        view_on_hub: null,
+        modal_title: null,
+        name_label: null,
+        name_description: null,
+        name_placeholder: null,
+        description_label: null,
+        description_description: null,
+        command_label: null,
+        command_description: null,
+        command_placeholder: null,
+        tags_label: null,
+        tags_description: null,
+        tags_placeholder: null,
+        visibility_label: null,
+        public_description: null,
+        private_description: null,
+        publish_button: null,
+        submitting: null,
+        prompt_label: null,
+        prompt_description: null,
+        prompt_placeholder: null,
+      },
+    },
+  },
+  security: {
+    title: "Güvenlik",
+    multiuser: {
+      title: "Çoklu Kullanıcı Modu",
+      description:
+        "Takımınızı desteklemek için örneğinizi yapılandırın ve Çoklu Kullanıcı Modunu etkinleştirin.",
+      enable: {
+        "is-enable": "Çoklu Kullanıcı Modu Etkin",
+        enable: "Çoklu Kullanıcı Modunu Etkinleştir",
+        description:
+          "Varsayılan olarak tek yönetici sizsiniz. Yönetici olarak yeni kullanıcılar veya yöneticiler için hesap oluşturmanız gerekir. Şifrenizi kaybetmeyin çünkü yalnızca bir Yönetici kullanıcı şifreleri sıfırlayabilir.",
+        username: "Yönetici hesap kullanıcı adı",
+        password: "Yönetici hesap şifresi",
+      },
+    },
+    password: {
+      title: "Şifre Koruması",
+      description:
+        "AnythingLLM örneğinizi bir şifre ile koruyun. Bu şifreyi unutmanız hâlinde kurtarma yöntemi yoktur, bu yüzden mutlaka güvende saklayın.",
+      "password-label": "Örnek şifresi",
     },
   },
 };

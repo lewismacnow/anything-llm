@@ -61,6 +61,7 @@ const TRANSLATIONS = {
     optional: null,
     yes: null,
     no: null,
+    search: null,
   },
   settings: {
     title: "Impostazioni istanza",
@@ -234,6 +235,7 @@ const TRANSLATIONS = {
         deleteConfirm: null,
         clearAllConfirm: null,
         expand: null,
+        publish: null,
       },
     },
     refusal: {
@@ -242,6 +244,8 @@ const TRANSLATIONS = {
       query: "query",
       "desc-end":
         "è attiva, potresti voler restituire una risposta di rifiuto personalizzata quando non viene trovato alcun contesto.",
+      "tooltip-title": null,
+      "tooltip-description": null,
     },
     temperature: {
       title: "Temperatura LLM",
@@ -400,8 +404,6 @@ const TRANSLATIONS = {
       "L'embedding è il processo di trasformazione del testo in vettori. Queste credenziali sono necessarie per trasformare i file e i prompt in un formato che AnythingLLM può utilizzare per l'elaborazione.",
     provider: {
       title: "Provider di embedding",
-      description:
-        "Non è richiesta alcuna configurazione quando si utilizza il motore di embedding nativo di AnythingLLM.",
     },
   },
   text: {
@@ -410,9 +412,6 @@ const TRANSLATIONS = {
       "A volte, potresti voler cambiare il modo predefinito in cui i nuovi documenti vengono suddivisi e spezzettati in blocchi prima di essere inseriti nel tuo database vettoriale.",
     "desc-end":
       "Dovresti modificare questa impostazione solo se capisci come funziona la suddivisione del testo e i suoi effetti collaterali.",
-    "warn-start": "Le modifiche qui si applicheranno solo a",
-    "warn-center": "nuovi documenti incorporati",
-    "warn-end": ", non documenti esistenti.",
     size: {
       title: "Dimensioni blocco di testo",
       description:
@@ -457,30 +456,6 @@ const TRANSLATIONS = {
       message: "Messaggio",
       response: "Risposta",
       at: "Inviato a",
-    },
-  },
-  multi: {
-    title: "Modalità multi-utente",
-    description:
-      "Imposta la tua istanza per supportare il tuo team attivando la modalità multi-utente.",
-    enable: {
-      "is-enable": "La modalità multi-utente è abilitata",
-      enable: "Abilita la modalità multi-utente",
-      description:
-        "Per impostazione predefinita, sarai l'unico amministratore. Come amministratore dovrai creare account per tutti i nuovi utenti o amministratori. Non perdere la tua password poiché solo un utente amministratore può reimpostare le password.",
-      username: "Nome utente account amministratore",
-      password: "Password account amministratore",
-    },
-    password: {
-      title: "Protezione password",
-      description:
-        "Proteggi la tua istanza AnythingLLM con una password. Se la dimentichi, non esiste un metodo di recupero, quindi assicurati di salvare questa password.",
-    },
-    instance: {
-      title: "Protezione password istanza",
-      description:
-        "Per impostazione predefinita, sarai l'unico amministratore. Come amministratore dovrai creare account per tutti i nuovi utenti o amministratori. Non perdere la tua password poiché solo un utente amministratore può reimpostare le password.",
-      password: "Password istanza",
     },
   },
   event: {
@@ -708,6 +683,16 @@ const TRANSLATIONS = {
     small: null,
     normal: null,
     large: null,
+    workspace_llm_manager: {
+      search: null,
+      loading_workspace_settings: null,
+      available_models: null,
+      available_models_description: null,
+      save: null,
+      saving: null,
+      missing_credentials: null,
+      missing_credentials_description: null,
+    },
   },
   profile_settings: {
     edit_account: null,
@@ -716,7 +701,7 @@ const TRANSLATIONS = {
     username: null,
     username_description: null,
     new_password: null,
-    passwort_description: null,
+    password_description: null,
     cancel: null,
     update_account: null,
     theme: null,
@@ -911,6 +896,112 @@ const TRANSLATIONS = {
       llmPreferences: null,
       chatSettings: null,
       help: null,
+      showLLMSelector: null,
+    },
+  },
+  community_hub: {
+    publish: {
+      system_prompt: {
+        success_title: null,
+        success_description: null,
+        success_thank_you: null,
+        view_on_hub: null,
+        modal_title: null,
+        name_label: null,
+        name_description: null,
+        name_placeholder: null,
+        description_label: null,
+        description_description: null,
+        tags_label: null,
+        tags_description: null,
+        tags_placeholder: null,
+        visibility_label: null,
+        public_description: null,
+        private_description: null,
+        publish_button: null,
+        submitting: null,
+        submit: null,
+        prompt_label: null,
+        prompt_description: null,
+        prompt_placeholder: null,
+      },
+      agent_flow: {
+        public_description: null,
+        private_description: null,
+        success_title: null,
+        success_description: null,
+        success_thank_you: null,
+        view_on_hub: null,
+        modal_title: null,
+        name_label: null,
+        name_description: null,
+        name_placeholder: null,
+        description_label: null,
+        description_description: null,
+        tags_label: null,
+        tags_description: null,
+        tags_placeholder: null,
+        visibility_label: null,
+        publish_button: null,
+        submitting: null,
+        submit: null,
+        privacy_note: null,
+      },
+      generic: {
+        unauthenticated: {
+          title: null,
+          description: null,
+          button: null,
+        },
+      },
+      slash_command: {
+        success_title: null,
+        success_description: null,
+        success_thank_you: null,
+        view_on_hub: null,
+        modal_title: null,
+        name_label: null,
+        name_description: null,
+        name_placeholder: null,
+        description_label: null,
+        description_description: null,
+        command_label: null,
+        command_description: null,
+        command_placeholder: null,
+        tags_label: null,
+        tags_description: null,
+        tags_placeholder: null,
+        visibility_label: null,
+        public_description: null,
+        private_description: null,
+        publish_button: null,
+        submitting: null,
+        prompt_label: null,
+        prompt_description: null,
+        prompt_placeholder: null,
+      },
+    },
+  },
+  security: {
+    title: "Sicurezza",
+    multiuser: {
+      title: "Modalità multi-utente",
+      description:
+        "Imposta la tua istanza per supportare il tuo team attivando la modalità multi-utente.",
+      enable: {
+        "is-enable": "La modalità multi-utente è abilitata",
+        enable: "Abilita la modalità multi-utente",
+        description:
+          "Per impostazione predefinita, sarai l'unico amministratore. Come amministratore dovrai creare account per tutti i nuovi utenti o amministratori. Non perdere la tua password poiché solo un utente amministratore può reimpostare le password.",
+        username: "Nome utente account amministratore",
+        password: "Password account amministratore",
+      },
+    },
+    password: {
+      title: "Protezione password",
+      description:
+        "Proteggi la tua istanza AnythingLLM con una password. Se la dimentichi, non esiste un metodo di recupero, quindi assicurati di salvare questa password.",
+      "password-label": "Password istanza",
     },
   },
 };

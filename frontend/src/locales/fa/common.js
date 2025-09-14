@@ -61,6 +61,7 @@ const TRANSLATIONS = {
     optional: null,
     yes: null,
     no: null,
+    search: null,
   },
   settings: {
     title: "تنظیمات سامانه",
@@ -231,6 +232,7 @@ const TRANSLATIONS = {
         deleteConfirm: null,
         clearAllConfirm: null,
         expand: null,
+        publish: null,
       },
     },
     refusal: {
@@ -239,6 +241,8 @@ const TRANSLATIONS = {
       query: "پرس‌وجو",
       "desc-end":
         "ممکن است بخواهید هنگامی که هیچ محتوایی یافت نمی‌شود، یک پاسخ رد سفارشی برگردانید.",
+      "tooltip-title": null,
+      "tooltip-description": null,
     },
     temperature: {
       title: "دمای LLM",
@@ -394,8 +398,6 @@ const TRANSLATIONS = {
       "جاسازی فرآیند تبدیل متن به بردارها است. این اعتبارنامه‌ها برای تبدیل فایل‌ها و درخواست‌های شما به فرمتی که AnythingLLM بتواند پردازش کند، ضروری هستند.",
     provider: {
       title: "ارائه‌دهنده جاسازی",
-      description:
-        "هنگام استفاده از موتور جاسازی داخلی AnythingLLM نیازی به تنظیمات نیست.",
     },
   },
   text: {
@@ -404,9 +406,6 @@ const TRANSLATIONS = {
       "تقسیم متن به شما امکان می‌دهد اسناد بزرگ را به بخش‌های کوچک‌تر تقسیم کنید که برای جاسازی و پردازش مناسب‌تر هستند.",
     "desc-end":
       "سعی کنید تعادلی بین اندازه بخش و همپوشانی ایجاد کنید تا از دست رفتن اطلاعات را به حداقل برسانید.",
-    "warn-start": "تغییر این مقادیر نیاز به",
-    "warn-center": "پردازش مجدد تمام اسناد",
-    "warn-end": "خواهد داشت.",
     size: {
       title: "حداکثر اندازه بخش",
       description:
@@ -451,30 +450,6 @@ const TRANSLATIONS = {
       message: "پیام",
       response: "پاسخ",
       at: "زمان ارسال",
-    },
-  },
-  multi: {
-    title: "حالت چند کاربره",
-    description:
-      "نمونه خود را برای پشتیبانی از تیم خود با فعال‌سازی حالت چند کاربره تنظیم کنید.",
-    enable: {
-      "is-enable": "حالت چند کاربره فعال است",
-      enable: "فعال‌سازی حالت چند کاربره",
-      description:
-        "به طور پیش‌فرض، شما تنها مدیر خواهید بود. به عنوان مدیر، باید برای تمام کاربران یا مدیران جدید حساب کاربری ایجاد کنید. رمز عبور خود را گم نکنید زیرا فقط یک کاربر مدیر می‌تواند رمزهای عبور را بازنشانی کند.",
-      username: "نام کاربری حساب مدیر",
-      password: "رمز عبور حساب مدیر",
-    },
-    password: {
-      title: "حفاظت با رمز عبور",
-      description:
-        "از نمونه AnythingLLM خود با رمز عبور محافظت کنید. اگر این رمز را فراموش کنید هیچ روش بازیابی وجود ندارد، پس حتماً این رمز عبور را ذخیره کنید.",
-    },
-    instance: {
-      title: "محافظت از نمونه با رمز عبور",
-      description:
-        "به طور پیش‌فرض، شما تنها مدیر خواهید بود. به عنوان مدیر، باید برای تمام کاربران یا مدیران جدید حساب کاربری ایجاد کنید. رمز عبور خود را گم نکنید زیرا فقط یک کاربر مدیر می‌تواند رمزهای عبور را بازنشانی کند.",
-      password: "رمز عبور نمونه",
     },
   },
   event: {
@@ -702,6 +677,16 @@ const TRANSLATIONS = {
     small: null,
     normal: null,
     large: null,
+    workspace_llm_manager: {
+      search: null,
+      loading_workspace_settings: null,
+      available_models: null,
+      available_models_description: null,
+      save: null,
+      saving: null,
+      missing_credentials: null,
+      missing_credentials_description: null,
+    },
   },
   profile_settings: {
     edit_account: null,
@@ -710,7 +695,7 @@ const TRANSLATIONS = {
     username: null,
     username_description: null,
     new_password: null,
-    passwort_description: null,
+    password_description: null,
     cancel: null,
     update_account: null,
     theme: null,
@@ -905,6 +890,112 @@ const TRANSLATIONS = {
       llmPreferences: null,
       chatSettings: null,
       help: null,
+      showLLMSelector: null,
+    },
+  },
+  community_hub: {
+    publish: {
+      system_prompt: {
+        success_title: null,
+        success_description: null,
+        success_thank_you: null,
+        view_on_hub: null,
+        modal_title: null,
+        name_label: null,
+        name_description: null,
+        name_placeholder: null,
+        description_label: null,
+        description_description: null,
+        tags_label: null,
+        tags_description: null,
+        tags_placeholder: null,
+        visibility_label: null,
+        public_description: null,
+        private_description: null,
+        publish_button: null,
+        submitting: null,
+        submit: null,
+        prompt_label: null,
+        prompt_description: null,
+        prompt_placeholder: null,
+      },
+      agent_flow: {
+        public_description: null,
+        private_description: null,
+        success_title: null,
+        success_description: null,
+        success_thank_you: null,
+        view_on_hub: null,
+        modal_title: null,
+        name_label: null,
+        name_description: null,
+        name_placeholder: null,
+        description_label: null,
+        description_description: null,
+        tags_label: null,
+        tags_description: null,
+        tags_placeholder: null,
+        visibility_label: null,
+        publish_button: null,
+        submitting: null,
+        submit: null,
+        privacy_note: null,
+      },
+      generic: {
+        unauthenticated: {
+          title: null,
+          description: null,
+          button: null,
+        },
+      },
+      slash_command: {
+        success_title: null,
+        success_description: null,
+        success_thank_you: null,
+        view_on_hub: null,
+        modal_title: null,
+        name_label: null,
+        name_description: null,
+        name_placeholder: null,
+        description_label: null,
+        description_description: null,
+        command_label: null,
+        command_description: null,
+        command_placeholder: null,
+        tags_label: null,
+        tags_description: null,
+        tags_placeholder: null,
+        visibility_label: null,
+        public_description: null,
+        private_description: null,
+        publish_button: null,
+        submitting: null,
+        prompt_label: null,
+        prompt_description: null,
+        prompt_placeholder: null,
+      },
+    },
+  },
+  security: {
+    title: "امنیت",
+    multiuser: {
+      title: "حالت چند کاربره",
+      description:
+        "نمونه خود را برای پشتیبانی از تیم خود با فعال‌سازی حالت چند کاربره تنظیم کنید.",
+      enable: {
+        "is-enable": "حالت چند کاربره فعال است",
+        enable: "فعال‌سازی حالت چند کاربره",
+        description:
+          "به طور پیش‌فرض، شما تنها مدیر خواهید بود. به عنوان مدیر، باید برای تمام کاربران یا مدیران جدید حساب کاربری ایجاد کنید. رمز عبور خود را گم نکنید زیرا فقط یک کاربر مدیر می‌تواند رمزهای عبور را بازنشانی کند.",
+        username: "نام کاربری حساب مدیر",
+        password: "رمز عبور حساب مدیر",
+      },
+    },
+    password: {
+      title: "حفاظت با رمز عبور",
+      description:
+        "از نمونه AnythingLLM خود با رمز عبور محافظت کنید. اگر این رمز را فراموش کنید هیچ روش بازیابی وجود ندارد، پس حتماً این رمز عبور را ذخیره کنید.",
+      "password-label": "رمز عبور نمونه",
     },
   },
 };

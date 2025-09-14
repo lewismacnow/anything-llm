@@ -68,6 +68,7 @@ const TRANSLATIONS = {
     optional: "اختياري",
     yes: "نعم",
     no: "لا",
+    search: null,
   },
   settings: {
     title: "إعدادات المثيل",
@@ -240,6 +241,7 @@ const TRANSLATIONS = {
         deleteConfirm: null,
         clearAllConfirm: null,
         expand: null,
+        publish: null,
       },
     },
     refusal: {
@@ -248,6 +250,8 @@ const TRANSLATIONS = {
       query: "استعلام",
       "desc-end":
         "وضعٍية ترغب في إرجاع رفض آخر مناسب عندما لا يتم العثور على السياق.",
+      "tooltip-title": null,
+      "tooltip-description": null,
     },
     temperature: {
       title: "حرارة نموذج التعلم العميق",
@@ -402,8 +406,6 @@ const TRANSLATIONS = {
       "التضمين هو عملية تحويل النص إلى متجهات. هذه البيانات مطلوبة لتحويل ملفاتك ومطالباتك إلى تنسيق يمكن لـ إني ثينك إلْلْمْ استخدامه للمعالجة.",
     provider: {
       title: "موفر التضمين",
-      description:
-        "لا يلزم إجراء أي إعداد عند استخدام محرك التضمين الأصلي الخاص بـ إني ثينك إلْلْمْ.",
     },
   },
   text: {
@@ -412,9 +414,6 @@ const TRANSLATIONS = {
       "في بعض الأحيان، قد ترغب في تغيير الطريقة الافتراضية التي يتم بها تقسيم المستندات الجديدة وتقطيعها قبل إدراجها في قاعدة بيانات المتجهة الخاصة بك.",
     "desc-end":
       "يجب عليك فقط تعديل هذا الإعداد إذا كنت تفهم كيفية عمل تقسيم النص وتأثيراته الجانبية.",
-    "warn-start": "التغييرات هنا سوف تنطبق فقط على",
-    "warn-center": "المستندات المضمنة حديثًا",
-    "warn-end": "، وليس على المستندات الموجودة.",
     size: {
       title: "حجم قطعة النص",
       description:
@@ -459,30 +458,6 @@ const TRANSLATIONS = {
       message: "رسالة",
       response: "استجابة",
       at: "أرسلت في",
-    },
-  },
-  multi: {
-    title: "وضعية المستعملين المتعددين",
-    description:
-      "قم بإعداد مثيلك لدعم فريقك من خلال تنشيط وضعية المستعملين المتعددين.",
-    enable: {
-      "is-enable": "تم تمكين وضعية المستعملين المتعددين",
-      enable: "تمكين وضعية المستعملين المتعددين",
-      description:
-        "افتراضيًا، ستكون أنت المشرف الوحيد. وبصفتك مشرفا ستحتاج إلى إنشاء حسابات لجميع المستعملين أو المشرفين الجدد. لا تفقد كلمة مرورك، حيث يمكن فقط للمستعمل المشرف إعادة تعيين كلمات المرور.",
-      username: "اسم المستعمل لحساب المشرف",
-      password: "كلمة مرور حساب المشرف",
-    },
-    password: {
-      title: "حماية كلمة المرور",
-      description:
-        "إحم مثيل إني ثينك إلْلْمْ بكلمة المرور. إذا نسيتها فلا يوجد طريقة لاستردادها، فاحرص على حفظها.",
-    },
-    instance: {
-      title: "حماية كلمة مرور المثيل",
-      description:
-        "افتراضيًا، ستكون أنت المشرف الوحيد. وبصفتك مشرفا، ستحتاج إلى إنشاء حسابات لجميع المستعملين أو المشرفين الجدد. لا تفقد كلمة مرورك، حيث يمكن فقط لمستعمل مشرف إعادة تعيين كلمات المرور.",
-      password: "كلمة مرور المثيل",
     },
   },
   event: {
@@ -710,6 +685,16 @@ const TRANSLATIONS = {
     small: null,
     normal: null,
     large: null,
+    workspace_llm_manager: {
+      search: null,
+      loading_workspace_settings: null,
+      available_models: null,
+      available_models_description: null,
+      save: null,
+      saving: null,
+      missing_credentials: null,
+      missing_credentials_description: null,
+    },
   },
   profile_settings: {
     edit_account: null,
@@ -718,7 +703,7 @@ const TRANSLATIONS = {
     username: null,
     username_description: null,
     new_password: null,
-    passwort_description: null,
+    password_description: null,
     cancel: null,
     update_account: null,
     theme: null,
@@ -913,6 +898,112 @@ const TRANSLATIONS = {
       llmPreferences: null,
       chatSettings: null,
       help: null,
+      showLLMSelector: null,
+    },
+  },
+  community_hub: {
+    publish: {
+      system_prompt: {
+        success_title: null,
+        success_description: null,
+        success_thank_you: null,
+        view_on_hub: null,
+        modal_title: null,
+        name_label: null,
+        name_description: null,
+        name_placeholder: null,
+        description_label: null,
+        description_description: null,
+        tags_label: null,
+        tags_description: null,
+        tags_placeholder: null,
+        visibility_label: null,
+        public_description: null,
+        private_description: null,
+        publish_button: null,
+        submitting: null,
+        submit: null,
+        prompt_label: null,
+        prompt_description: null,
+        prompt_placeholder: null,
+      },
+      agent_flow: {
+        public_description: null,
+        private_description: null,
+        success_title: null,
+        success_description: null,
+        success_thank_you: null,
+        view_on_hub: null,
+        modal_title: null,
+        name_label: null,
+        name_description: null,
+        name_placeholder: null,
+        description_label: null,
+        description_description: null,
+        tags_label: null,
+        tags_description: null,
+        tags_placeholder: null,
+        visibility_label: null,
+        publish_button: null,
+        submitting: null,
+        submit: null,
+        privacy_note: null,
+      },
+      generic: {
+        unauthenticated: {
+          title: null,
+          description: null,
+          button: null,
+        },
+      },
+      slash_command: {
+        success_title: null,
+        success_description: null,
+        success_thank_you: null,
+        view_on_hub: null,
+        modal_title: null,
+        name_label: null,
+        name_description: null,
+        name_placeholder: null,
+        description_label: null,
+        description_description: null,
+        command_label: null,
+        command_description: null,
+        command_placeholder: null,
+        tags_label: null,
+        tags_description: null,
+        tags_placeholder: null,
+        visibility_label: null,
+        public_description: null,
+        private_description: null,
+        publish_button: null,
+        submitting: null,
+        prompt_label: null,
+        prompt_description: null,
+        prompt_placeholder: null,
+      },
+    },
+  },
+  security: {
+    title: "حماية",
+    multiuser: {
+      title: "وضعية المستعملين المتعددين",
+      description:
+        "قم بإعداد مثيلك لدعم فريقك من خلال تنشيط وضعية المستعملين المتعددين.",
+      enable: {
+        "is-enable": "تم تمكين وضعية المستعملين المتعددين",
+        enable: "تمكين وضعية المستعملين المتعددين",
+        description:
+          "افتراضيًا، ستكون أنت المشرف الوحيد. وبصفتك مشرفا ستحتاج إلى إنشاء حسابات لجميع المستعملين أو المشرفين الجدد. لا تفقد كلمة مرورك، حيث يمكن فقط للمستعمل المشرف إعادة تعيين كلمات المرور.",
+        username: "اسم المستعمل لحساب المشرف",
+        password: "كلمة مرور حساب المشرف",
+      },
+    },
+    password: {
+      title: "حماية كلمة المرور",
+      description:
+        "إحم مثيل إني ثينك إلْلْمْ بكلمة المرور. إذا نسيتها فلا يوجد طريقة لاستردادها، فاحرص على حفظها.",
+      "password-label": "كلمة مرور المثيل",
     },
   },
 };

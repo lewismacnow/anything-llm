@@ -69,6 +69,7 @@ const TRANSLATIONS = {
     optional: "Необязательный",
     yes: "Да",
     no: "Нет",
+    search: null,
   },
   settings: {
     title: "Настройки экземпляра",
@@ -242,6 +243,7 @@ const TRANSLATIONS = {
         deleteConfirm: null,
         clearAllConfirm: null,
         expand: null,
+        publish: null,
       },
     },
     refusal: {
@@ -250,6 +252,8 @@ const TRANSLATIONS = {
       query: "запроса",
       "desc-end":
         "вы можете вернуть пользовательский ответ об отказе, если контекст не найден.",
+      "tooltip-title": null,
+      "tooltip-description": null,
     },
     temperature: {
       title: "Температура LLM",
@@ -406,8 +410,6 @@ const TRANSLATIONS = {
       "Встраивание - это процесс превращения текста в векторы. Эти учетные данные необходимы для превращения ваших файлов и подсказок в формат, который AnythingLLM может использовать для обработки.",
     provider: {
       title: "Поставщик встраивания",
-      description:
-        "Нет необходимости в настройке при использовании встроенного механизма встраивания AnythingLLM.",
     },
   },
   text: {
@@ -416,9 +418,6 @@ const TRANSLATIONS = {
       "Иногда может понадобиться изменить стандартный способ разделения и сегментации новых документов перед их вставкой в векторную базу данных.",
     "desc-end":
       "Следует изменять этот параметр только при полном понимании работы разделения текста и его побочных эффектов.",
-    "warn-start": "Изменения здесь будут применяться только к",
-    "warn-center": "новым встроенным документам",
-    "warn-end": ", а не к существующим документам.",
     size: {
       title: "Размер сегмента текста",
       description:
@@ -463,30 +462,6 @@ const TRANSLATIONS = {
       message: "Сообщение",
       response: "Ответ",
       at: "Отправлено в",
-    },
-  },
-  multi: {
-    title: "Многопользовательский режим",
-    description:
-      "Настройте ваш экземпляр для поддержки вашей команды, активировав многопользовательский режим.",
-    enable: {
-      "is-enable": "Многопользовательский режим включен",
-      enable: "Включить многопользовательский режим",
-      description:
-        "По умолчанию, вы будете единственным администратором. Как администратор, вы должны будете создавать учетные записи для всех новых пользователей или администраторов. Не теряйте ваш пароль, так как только администратор может сбросить пароли.",
-      username: "Имя пользователя учетной записи администратора",
-      password: "Пароль учетной записи администратора",
-    },
-    password: {
-      title: "Защита паролем",
-      description:
-        "Защитите ваш экземпляр AnythingLLM паролем. Если вы забудете его, метода восстановления не существует, поэтому убедитесь, что вы сохранили этот пароль.",
-    },
-    instance: {
-      title: "Защитить экземпляр паролем",
-      description:
-        "По умолчанию, вы будете единственным администратором. Как администратор, вы должны будете создавать учетные записи для всех новых пользователей или администраторов. Не теряйте ваш пароль, так как только администратор может сбросить пароли.",
-      password: "Пароль экземпляра",
     },
   },
   event: {
@@ -749,6 +724,16 @@ const TRANSLATIONS = {
     small: null,
     normal: null,
     large: null,
+    workspace_llm_manager: {
+      search: null,
+      loading_workspace_settings: null,
+      available_models: null,
+      available_models_description: null,
+      save: null,
+      saving: null,
+      missing_credentials: null,
+      missing_credentials_description: null,
+    },
   },
   profile_settings: {
     edit_account: "Редактировать учётную запись",
@@ -758,7 +743,7 @@ const TRANSLATIONS = {
     username_description:
       "Имя пользователя должно состоять только из строчных букв, цифр, символов подчеркивания и дефисов без пробелов",
     new_password: "Новый пароль",
-    passwort_description: "Пароль должен содержать не менее 8 символов",
+    password_description: "Пароль должен содержать не менее 8 символов",
     cancel: "Отмена",
     update_account: "Обновить учётную запись",
     theme: "Предпочтения темы",
@@ -953,6 +938,112 @@ const TRANSLATIONS = {
       llmPreferences: null,
       chatSettings: null,
       help: null,
+      showLLMSelector: null,
+    },
+  },
+  community_hub: {
+    publish: {
+      system_prompt: {
+        success_title: null,
+        success_description: null,
+        success_thank_you: null,
+        view_on_hub: null,
+        modal_title: null,
+        name_label: null,
+        name_description: null,
+        name_placeholder: null,
+        description_label: null,
+        description_description: null,
+        tags_label: null,
+        tags_description: null,
+        tags_placeholder: null,
+        visibility_label: null,
+        public_description: null,
+        private_description: null,
+        publish_button: null,
+        submitting: null,
+        submit: null,
+        prompt_label: null,
+        prompt_description: null,
+        prompt_placeholder: null,
+      },
+      agent_flow: {
+        public_description: null,
+        private_description: null,
+        success_title: null,
+        success_description: null,
+        success_thank_you: null,
+        view_on_hub: null,
+        modal_title: null,
+        name_label: null,
+        name_description: null,
+        name_placeholder: null,
+        description_label: null,
+        description_description: null,
+        tags_label: null,
+        tags_description: null,
+        tags_placeholder: null,
+        visibility_label: null,
+        publish_button: null,
+        submitting: null,
+        submit: null,
+        privacy_note: null,
+      },
+      generic: {
+        unauthenticated: {
+          title: null,
+          description: null,
+          button: null,
+        },
+      },
+      slash_command: {
+        success_title: null,
+        success_description: null,
+        success_thank_you: null,
+        view_on_hub: null,
+        modal_title: null,
+        name_label: null,
+        name_description: null,
+        name_placeholder: null,
+        description_label: null,
+        description_description: null,
+        command_label: null,
+        command_description: null,
+        command_placeholder: null,
+        tags_label: null,
+        tags_description: null,
+        tags_placeholder: null,
+        visibility_label: null,
+        public_description: null,
+        private_description: null,
+        publish_button: null,
+        submitting: null,
+        prompt_label: null,
+        prompt_description: null,
+        prompt_placeholder: null,
+      },
+    },
+  },
+  security: {
+    title: "Безопасность",
+    multiuser: {
+      title: "Многопользовательский режим",
+      description:
+        "Настройте ваш экземпляр для поддержки вашей команды, активировав многопользовательский режим.",
+      enable: {
+        "is-enable": "Многопользовательский режим включен",
+        enable: "Включить многопользовательский режим",
+        description:
+          "По умолчанию, вы будете единственным администратором. Как администратор, вы должны будете создавать учетные записи для всех новых пользователей или администраторов. Не теряйте ваш пароль, так как только администратор может сбросить пароли.",
+        username: "Имя пользователя учетной записи администратора",
+        password: "Пароль учетной записи администратора",
+      },
+    },
+    password: {
+      title: "Защита паролем",
+      description:
+        "Защитите ваш экземпляр AnythingLLM паролем. Если вы забудете его, метода восстановления не существует, поэтому убедитесь, что вы сохранили этот пароль.",
+      "password-label": "Пароль экземпляра",
     },
   },
 };

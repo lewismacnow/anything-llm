@@ -61,6 +61,7 @@ const TRANSLATIONS = {
     optional: null,
     yes: null,
     no: null,
+    search: null,
   },
   settings: {
     title: "Paramètres de l'instance",
@@ -236,6 +237,7 @@ const TRANSLATIONS = {
         deleteConfirm: null,
         clearAllConfirm: null,
         expand: null,
+        publish: null,
       },
     },
     refusal: {
@@ -244,6 +246,8 @@ const TRANSLATIONS = {
       query: "requête",
       "desc-end":
         ", vous pouvez souhaiter retourner une réponse de refus personnalisée lorsque aucun contexte n'est trouvé.",
+      "tooltip-title": null,
+      "tooltip-description": null,
     },
     temperature: {
       title: "Température LLM",
@@ -402,8 +406,6 @@ const TRANSLATIONS = {
       "L'intégration est le processus de transformation du texte en vecteurs. Ces identifiants sont nécessaires pour transformer vos fichiers et invites en un format que AnythingLLM peut utiliser pour traiter.",
     provider: {
       title: "Fournisseur d'intégration",
-      description:
-        "Aucune configuration n'est nécessaire lors de l'utilisation du moteur d'intégration natif de AnythingLLM.",
     },
   },
   text: {
@@ -412,9 +414,6 @@ const TRANSLATIONS = {
       "Parfois, vous voudrez peut-être changer la façon dont les nouveaux documents sont divisés et découpés avant d'être insérés dans votre base de données vectorielle.",
     "desc-end":
       "Vous ne devez modifier ce paramètre que si vous comprenez comment fonctionne la division du texte et ses effets secondaires.",
-    "warn-start": "Les changements ici s'appliqueront uniquement aux",
-    "warn-center": "nouveaux documents intégrés",
-    "warn-end": ", pas aux documents existants.",
     size: {
       title: "Taille des segments de texte",
       description:
@@ -459,30 +458,6 @@ const TRANSLATIONS = {
       message: "Message",
       response: "Réponse",
       at: "Envoyé à",
-    },
-  },
-  multi: {
-    title: "Mode multi-utilisateurs",
-    description:
-      "Configurez votre instance pour prendre en charge votre équipe en activant le mode multi-utilisateurs.",
-    enable: {
-      "is-enable": "Le mode multi-utilisateurs est activé",
-      enable: "Activer le mode multi-utilisateurs",
-      description:
-        "Par défaut, vous serez le seul administrateur. En tant qu'administrateur, vous devrez créer des comptes pour tous les nouveaux utilisateurs ou administrateurs. Ne perdez pas votre mot de passe car seul un utilisateur administrateur peut réinitialiser les mots de passe.",
-      username: "Nom d'utilisateur du compte administrateur",
-      password: "Mot de passe du compte administrateur",
-    },
-    password: {
-      title: "Protection par mot de passe",
-      description:
-        "Protégez votre instance AnythingLLM avec un mot de passe. Si vous oubliez ce mot de passe, il n'y a pas de méthode de récupération, donc assurez-vous de le sauvegarder.",
-    },
-    instance: {
-      title: "Protéger l'instance par mot de passe",
-      description:
-        "Par défaut, vous serez le seul administrateur. En tant qu'administrateur, vous devrez créer des comptes pour tous les nouveaux utilisateurs ou administrateurs. Ne perdez pas votre mot de passe car seul un utilisateur administrateur peut réinitialiser les mots de passe.",
-      password: "Mot de passe de l'instance",
     },
   },
   event: {
@@ -710,6 +685,16 @@ const TRANSLATIONS = {
     small: null,
     normal: null,
     large: null,
+    workspace_llm_manager: {
+      search: null,
+      loading_workspace_settings: null,
+      available_models: null,
+      available_models_description: null,
+      save: null,
+      saving: null,
+      missing_credentials: null,
+      missing_credentials_description: null,
+    },
   },
   profile_settings: {
     edit_account: null,
@@ -718,7 +703,7 @@ const TRANSLATIONS = {
     username: null,
     username_description: null,
     new_password: null,
-    passwort_description: null,
+    password_description: null,
     cancel: null,
     update_account: null,
     theme: null,
@@ -913,6 +898,112 @@ const TRANSLATIONS = {
       llmPreferences: null,
       chatSettings: null,
       help: null,
+      showLLMSelector: null,
+    },
+  },
+  community_hub: {
+    publish: {
+      system_prompt: {
+        success_title: null,
+        success_description: null,
+        success_thank_you: null,
+        view_on_hub: null,
+        modal_title: null,
+        name_label: null,
+        name_description: null,
+        name_placeholder: null,
+        description_label: null,
+        description_description: null,
+        tags_label: null,
+        tags_description: null,
+        tags_placeholder: null,
+        visibility_label: null,
+        public_description: null,
+        private_description: null,
+        publish_button: null,
+        submitting: null,
+        submit: null,
+        prompt_label: null,
+        prompt_description: null,
+        prompt_placeholder: null,
+      },
+      agent_flow: {
+        public_description: null,
+        private_description: null,
+        success_title: null,
+        success_description: null,
+        success_thank_you: null,
+        view_on_hub: null,
+        modal_title: null,
+        name_label: null,
+        name_description: null,
+        name_placeholder: null,
+        description_label: null,
+        description_description: null,
+        tags_label: null,
+        tags_description: null,
+        tags_placeholder: null,
+        visibility_label: null,
+        publish_button: null,
+        submitting: null,
+        submit: null,
+        privacy_note: null,
+      },
+      generic: {
+        unauthenticated: {
+          title: null,
+          description: null,
+          button: null,
+        },
+      },
+      slash_command: {
+        success_title: null,
+        success_description: null,
+        success_thank_you: null,
+        view_on_hub: null,
+        modal_title: null,
+        name_label: null,
+        name_description: null,
+        name_placeholder: null,
+        description_label: null,
+        description_description: null,
+        command_label: null,
+        command_description: null,
+        command_placeholder: null,
+        tags_label: null,
+        tags_description: null,
+        tags_placeholder: null,
+        visibility_label: null,
+        public_description: null,
+        private_description: null,
+        publish_button: null,
+        submitting: null,
+        prompt_label: null,
+        prompt_description: null,
+        prompt_placeholder: null,
+      },
+    },
+  },
+  security: {
+    title: "Sécurité",
+    multiuser: {
+      title: "Mode multi-utilisateurs",
+      description:
+        "Configurez votre instance pour prendre en charge votre équipe en activant le mode multi-utilisateurs.",
+      enable: {
+        "is-enable": "Le mode multi-utilisateurs est activé",
+        enable: "Activer le mode multi-utilisateurs",
+        description:
+          "Par défaut, vous serez le seul administrateur. En tant qu'administrateur, vous devrez créer des comptes pour tous les nouveaux utilisateurs ou administrateurs. Ne perdez pas votre mot de passe car seul un utilisateur administrateur peut réinitialiser les mots de passe.",
+        username: "Nom d'utilisateur du compte administrateur",
+        password: "Mot de passe du compte administrateur",
+      },
+    },
+    password: {
+      title: "Protection par mot de passe",
+      description:
+        "Protégez votre instance AnythingLLM avec un mot de passe. Si vous oubliez ce mot de passe, il n'y a pas de méthode de récupération, donc assurez-vous de le sauvegarder.",
+      "password-label": "Mot de passe de l'instance",
     },
   },
 };
