@@ -13,6 +13,7 @@ const { EventLogs } = require("./eventLogs");
  */
 
 const User = {
+  // Regex to accept email addresses and usernames with numbers, letters, dashes, dots, and underscores
   usernameRegex: new RegExp(/^(?:[a-z0-9_\-.]+|[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/),
   writable: [
     // Used for generic updates so we can validate keys in request body
@@ -95,7 +96,7 @@ const User = {
       // Do not allow new users to bypass validation
       if (!this.usernameRegex.test(username))
         throw new Error(
-          "Username must only contain lowercase letters, periods, numbers, underscores, and hyphens with no spaces or be a valid email address","
+          "Username must only contain lowercase letters, periods, numbers, underscores, and hyphens with no spaces or be a valid email address",
         );
 
       const bcrypt = require("bcrypt");
@@ -175,7 +176,7 @@ const User = {
         return {
           success: false,
           error:
-            "Username must only contain lowercase letters, periods, numbers, underscores, and hyphens with no spaces or be a valid email address",",
+            "Username must only contain lowercase letters, periods, numbers, underscores, and hyphens with no spaces or be a valid email address",
         };
 
       const user = await prisma.users.update({
